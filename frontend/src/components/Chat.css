@@ -1,0 +1,59 @@
+.chat-name {
+    background-color: inherit;
+    max-width: 280px;
+    
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+
+    display: flex;
+}
+
+.chat-name:hover {
+    background-color: rgb(50, 50, 50);
+}
+
+.chat-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    max-width: 240px;
+
+    color: rgb(240, 240, 240);
+    font-size: 14px;
+
+    flex: 1;
+    padding: 12px 0px 12px 12px;
+}
+
+.active-chat {
+    background-color: rgba(37, 150, 190, 0.15);
+}
+
+.active-chat:hover {
+    background-color: rgba(37, 150, 190, 0.25);
+}
+
+.chat-name:hover .delete-button {
+    display: block;
+}
+
+.second-chat-part {
+   width: 32px;
+   position: relative; 
+   padding: 12px 0px 12px 0;
+}
+
+.delete-button {
+    position: absolute;
+    width: 32px;
+    border: none;
+    cursor: crosshair;
+    display: none;
+    background-color: transparent;
+}
+
+.delete-image {
+    width: 100%;
+}

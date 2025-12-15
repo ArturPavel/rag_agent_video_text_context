@@ -1,0 +1,20 @@
+.sidebar-button {
+  border: none;
+  padding: 0px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 56px;
+  background-color: inherit;
+  padding: 12px;
+
+  user-select: none;
+  
+}
+
+.sidebar-button:hover {
+  background-color: rgb(52, 52, 52);
+}
+
+.sidebar-button-image {
+  width: 100%;
+}

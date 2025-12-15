@@ -1,0 +1,87 @@
+.chat-history {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    
+    margin-bottom: 10vh;
+
+    flex: 1;
+}
+
+.chat-history::-webkit-scrollbar {
+  display: none;
+}
+
+.chat-history-header {
+    overflow: hidden;
+    white-space: nowrap;
+    color: rgb(126, 126, 126);
+    font-size: 14px;
+    padding: 8px 0 8px 12px;
+    user-select: none;
+}
+
+.add-new-chat {
+  border: none;
+  padding: 0px;
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: inherit;
+  padding: 8px;
+
+  user-select: none;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.add-new-chat:hover {
+  background-color: rgb(52, 52, 52);
+}
+
+.add-new-chat-image {
+  width: 24px;
+  margin-left: 6px;
+  margin-right: 8px;
+}
+
+.add-new-chat-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    max-width: 240px;
+
+    color: rgb(240, 240, 240);
+    font-size: 14px;
+}
+
+.chat-name-input {
+    overflow: hidden;
+    max-width: 240px;
+
+    user-select: none;
+    border-radius: 8px;
+    background-color: rgb(60, 60, 60);
+    box-shadow: 4px 8px 6px rgb(30, 30, 30);
+    margin: 8px 0 8px 8px;
+
+    border: solid 1px rgb(60, 60, 60);
+    transition: 0.1s;
+}
+  
+.chat-name-input-element {
+  width: 100%;
+  padding: 8px 16px;
+  
+  color: rgb(220, 220, 220);
+  background-color: inherit;
+  
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.chat-name-input:hover {
+  border: solid 1px rgb(37, 150, 190);
+  background-color: rgba(37, 150, 190, 0.15);
+}
