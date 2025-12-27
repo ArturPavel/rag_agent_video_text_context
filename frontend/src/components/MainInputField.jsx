@@ -53,7 +53,7 @@ export function MainInputField({ messagesArray, setMessagesArray, activeChat, se
         
         let fileType = event.target.files[0].type
 
-        if (fileType !== 'image/jpeg' && fileType !== 'image/png' && fileType !== 'video/mp4' && fileType !== 'audio/mpeg' && fileType !== 'audio/wav') {
+        if (fileType !== 'image/jpeg' && fileType !== 'image/png' && fileType !== 'video/mp4' && fileType !== 'audio/mpeg' && fileType !== 'audio/wav' && fileType!== 'application/pdf') {
             alert("Invalid input format")
             return 0
         }

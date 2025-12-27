@@ -4,6 +4,8 @@ from os import environ
 import easyocr
 import numpy as np
 import cv2
+from pypdf import PdfReader
+from io import BytesIO
 
 from .rag import RAG
 
@@ -14,8 +16,10 @@ class data:
     def data_pick_file(cls, file_content_type, contents, active_chat):
         if file_content_type == 'image/jpeg' or file_content_type == 'image/png':
             return cls.image_data(contents=contents, active_chat=active_chat)
-        elif file_content_type == 'video/mp4' or file_content_type == 'audio/mpeg' or 'audio/wav':
+        elif file_content_type == 'video/mp4' or file_content_type == 'audio/mpeg' or file_content_type == 'audio/wav':
             return cls.audio_data(contents=contents, active_chat=active_chat)
+        elif file_content_type == 'application/pdf':
+            return cls.pdf_data(contents=contents, active_chat=active_chat)
         else:
             return "File type not supported"
 
@@ -56,8 +60,18 @@ class data:
         return(full_text)
     
     @classmethod
-    def pdf_data(cls):
-        ...
+    def pdf_data(cls, contents, active_chat):
+        reader = PdfReader(BytesIO(contents))
+        result = ""
+
+        for page in reader.pages:
+            page_text = page.extract_text()
+            if page_text:
+                result += page_text + "\n"
+
+        RAG.add_data(docs=result, collection_name=active_chat)
+
+        return(result)
 
     @classmethod
     def change_object_to_basemessage(cls, messages):

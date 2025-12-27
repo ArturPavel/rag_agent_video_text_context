@@ -5,12 +5,16 @@ import { useEffect, useState, useRef } from "react"
 import { chageSidebar } from "../utils/sidebar.jsx"
 
 export function History({ activeChat, setActiveChat, historyDisplay, chatsArray, setChatsArray, sidebarWidth, setSidebarWidth, setHistoryDisplay}) {
+    const [ chatTitle, addChatTitle ] = useState("none")
+    const chatTitleElement = useRef(null)
+
     useEffect(() => {
         localStorage.setItem("chatsArray", JSON.stringify(chatsArray))
     }, [chatsArray])
 
-    const [ chatTitle, addChatTitle ] = useState("none")
-    const chatTitleElement = useRef(null)
+    useEffect(() => {
+        chatTitleElement.current.focus()
+    }, [chatTitle])
 
     function sendChatTitle(event) {
         if (event.key === "Enter" && chatTitleElement.current.value.trim() !== '') {
